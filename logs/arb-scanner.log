@@ -1,0 +1,121 @@
+[2024-04-18T09:00:00.112Z] [INFO]   Mode: DRY RUN
+[2024-04-18T09:00:00.113Z] [INFO]   Min profit: $30
+[2024-04-18T09:00:00.113Z] [INFO]   Scan interval: 12s
+[2024-04-18T09:00:00.114Z] [INFO]   Telegram alerts: enabled
+[2024-04-18T09:00:00.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:00:01.003Z] [INFO]   Market prices refreshed — ETH $3121.44  LINK $18.4200
+[2024-04-18T09:00:01.841Z] [INFO]   Gas costs — ETH $14.87  ARB $0.021  BASE $0.004
+[2024-04-18T09:00:04.203Z] [INFO]   Spread $11.32 — below $30 threshold.
+
+[2024-04-18T09:00:12.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:00:12.980Z] [INFO]   Market prices refreshed (cached) — ETH $3121.44  LINK $18.4200
+[2024-04-18T09:00:13.711Z] [INFO]   Gas costs — ETH $14.21  ARB $0.019  BASE $0.004
+[2024-04-18T09:00:16.441Z] [INFO]   Spread $8.74 — below $30 threshold.
+
+[2024-04-18T09:00:24.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:00:24.982Z] [INFO]   Market prices refreshed (cached) — ETH $3121.44  LINK $18.4200
+[2024-04-18T09:00:25.310Z] [INFO]   Gas costs — ETH $15.02  ARB $0.022  BASE $0.005
+[2024-04-18T09:00:28.007Z] [INFO]   Spread $6.21 — below $30 threshold.
+
+[2024-04-18T09:00:36.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:00:36.991Z] [INFO]   Market prices refreshed (cached) — ETH $3121.44  LINK $18.4200
+[2024-04-18T09:00:37.441Z] [INFO]   Gas costs — ETH $13.88  ARB $0.018  BASE $0.003
+[2024-04-18T09:00:40.210Z] [INFO]   Spread $19.05 — below $30 threshold.
+
+[2024-04-18T09:00:48.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:00:48.903Z] [INFO]   Market prices refreshed — ETH $3118.72  LINK $18.5100
+[2024-04-18T09:00:49.401Z] [INFO]   Gas costs — ETH $13.51  ARB $0.017  BASE $0.003
+[2024-04-18T09:00:52.811Z] [INFO]   Spread $24.61 — below $30 threshold.
+
+[2024-04-18T09:01:00.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:01:00.884Z] [INFO]   Market prices refreshed (cached) — ETH $3118.72  LINK $18.5100
+[2024-04-18T09:01:01.332Z] [INFO]   Gas costs — ETH $12.94  ARB $0.016  BASE $0.003
+[2024-04-18T09:01:04.501Z] [ARB]    PROFITABLE ARB FOUND! $32.18 net — executing...
+[2024-04-18T09:01:04.502Z] [ARB]    [DRY-RUN] Would execute: buy 184.2014 LINK on Camelot V3, sell on Aerodrome. Est. profit $32.18
+[2024-04-18T09:01:04.503Z] [OK]     Telegram alert sent.
+
+[2024-04-18T09:01:12.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:01:12.881Z] [INFO]   Market prices refreshed (cached) — ETH $3118.72  LINK $18.5100
+[2024-04-18T09:01:13.204Z] [INFO]   Gas costs — ETH $12.77  ARB $0.015  BASE $0.003
+[2024-04-18T09:01:16.009Z] [ARB]    PROFITABLE ARB FOUND! $44.07 net — executing...
+[2024-04-18T09:01:16.010Z] [ARB]    [DRY-RUN] Would execute: buy 183.8821 LINK on Camelot V3, sell on Aerodrome. Est. profit $44.07
+[2024-04-18T09:01:16.011Z] [OK]     Telegram alert sent.
+
+[2024-04-18T09:01:24.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:01:24.773Z] [INFO]   Market prices refreshed — ETH $3122.09  LINK $18.6300
+[2024-04-18T09:01:25.211Z] [INFO]   Gas costs — ETH $14.30  ARB $0.019  BASE $0.004
+[2024-04-18T09:01:28.614Z] [ARB]    PROFITABLE ARB FOUND! $71.39 net — executing...
+[2024-04-18T09:01:28.615Z] [ARB]    [DRY-RUN] Would execute: buy 183.7104 LINK on Camelot V3, sell on Aerodrome. Est. profit $71.39
+[2024-04-18T09:01:28.616Z] [OK]     Telegram alert sent.
+
+[2024-04-18T09:01:36.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:01:36.801Z] [INFO]   Market prices refreshed (cached) — ETH $3122.09  LINK $18.6300
+[2024-04-18T09:01:37.214Z] [INFO]   Gas costs — ETH $16.44  ARB $0.023  BASE $0.005
+[2024-04-18T09:01:40.911Z] [INFO]   Spread $22.14 — below $30 threshold.
+
+[2024-04-18T09:01:48.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:01:48.894Z] [INFO]   Market prices refreshed (cached) — ETH $3122.09  LINK $18.6300
+[2024-04-18T09:01:49.312Z] [INFO]   Gas costs — ETH $17.02  ARB $0.024  BASE $0.005
+[2024-04-18T09:01:52.207Z] [INFO]   Spread $9.03 — below $30 threshold.
+
+[2024-04-18T09:02:00.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:02:00.881Z] [INFO]   Market prices refreshed — ETH $3119.88  LINK $18.4400
+[2024-04-18T09:02:01.311Z] [INFO]   Gas costs — ETH $18.11  ARB $0.026  BASE $0.005
+[2024-04-18T09:02:04.803Z] [WARN]   Camelot V3 quote failed after 3 attempts — RPC timeout
+[2024-04-18T09:02:04.804Z] [WARN]   Not enough valid quotes — skipping this tick.
+
+[2024-04-18T09:02:12.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:02:12.883Z] [INFO]   Market prices refreshed (cached) — ETH $3119.88  LINK $18.4400
+[2024-04-18T09:02:13.311Z] [INFO]   Gas costs — ETH $17.88  ARB $0.025  BASE $0.005
+[2024-04-18T09:02:16.204Z] [INFO]   Spread $14.77 — below $30 threshold.
+
+[2024-04-18T09:02:24.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:02:24.001Z] [INFO]   Market prices refreshed — ETH $3115.30  LINK $18.3800
+[2024-04-18T09:02:24.812Z] [INFO]   Gas costs — ETH $12.05  ARB $0.014  BASE $0.003
+[2024-04-18T09:02:27.509Z] [ARB]    PROFITABLE ARB FOUND! $38.92 net — executing...
+[2024-04-18T09:02:27.510Z] [ARB]    [DRY-RUN] Would execute: buy 185.0221 LINK on Camelot V3, sell on Aerodrome. Est. profit $38.92
+[2024-04-18T09:02:27.511Z] [OK]     Telegram alert sent.
+
+[2024-04-18T09:02:36.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:02:36.884Z] [INFO]   Market prices refreshed (cached) — ETH $3115.30  LINK $18.3800
+[2024-04-18T09:02:37.301Z] [INFO]   Gas costs — ETH $11.99  ARB $0.014  BASE $0.003
+[2024-04-18T09:02:40.414Z] [INFO]   Spread $3.49 — below $30 threshold.
+
+[2024-04-18T09:02:48.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:02:48.802Z] [INFO]   Market prices refreshed (cached) — ETH $3115.30  LINK $18.3800
+[2024-04-18T09:02:49.231Z] [INFO]   Gas costs — ETH $11.88  ARB $0.014  BASE $0.003
+[2024-04-18T09:02:52.107Z] [INFO]   No spread found between any DEX pair.
+
+[2024-04-18T09:03:00.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:03:00.883Z] [WARN]   CoinGecko request failed — using cached prices.
+[2024-04-18T09:03:01.311Z] [INFO]   Gas costs — ETH $13.01  ARB $0.016  BASE $0.003
+[2024-04-18T09:03:04.709Z] [INFO]   Spread $17.22 — below $30 threshold.
+
+[2024-04-18T09:03:12.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:03:12.882Z] [INFO]   Market prices refreshed — ETH $3128.41  LINK $18.7700
+[2024-04-18T09:03:13.301Z] [INFO]   Gas costs — ETH $13.55  ARB $0.017  BASE $0.003
+[2024-04-18T09:03:16.811Z] [ARB]    PROFITABLE ARB FOUND! $58.44 net — executing...
+[2024-04-18T09:03:16.812Z] [ARB]    [DRY-RUN] Would execute: buy 183.2918 LINK on Uniswap V3, sell on Aerodrome. Est. profit $58.44
+[2024-04-18T09:03:16.813Z] [OK]     Telegram alert sent.
+
+[2024-04-18T09:03:24.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:03:24.883Z] [INFO]   Market prices refreshed (cached) — ETH $3128.41  LINK $18.7700
+[2024-04-18T09:03:25.314Z] [INFO]   Gas costs — ETH $14.11  ARB $0.018  BASE $0.004
+[2024-04-18T09:03:28.209Z] [INFO]   Spread $12.88 — below $30 threshold.
+
+[2024-04-18T09:03:36.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:03:36.901Z] [INFO]   Market prices refreshed — ETH $3131.20  LINK $18.9100
+[2024-04-18T09:03:37.404Z] [INFO]   Gas costs — ETH $15.32  ARB $0.020  BASE $0.004
+[2024-04-18T09:03:40.110Z] [INFO]   Spread $28.07 — below $30 threshold.
+
+[2024-04-18T09:03:48.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:03:48.882Z] [INFO]   Market prices refreshed (cached) — ETH $3131.20  LINK $18.9100
+[2024-04-18T09:03:49.301Z] [INFO]   Gas costs — ETH $14.97  ARB $0.019  BASE $0.004
+[2024-04-18T09:03:52.807Z] [INFO]   Spread $7.11 — below $30 threshold.
+
+[2024-04-18T09:04:00.115Z] [INFO]   Scanning quotes for 1.0 WETH...
+[2024-04-18T09:04:00.883Z] [INFO]   Market prices refreshed — ETH $3133.90  LINK $19.0400
+[2024-04-18T09:04:01.311Z] [INFO]   Gas costs — ETH $13.02  ARB $0.016  BASE $0.003
+[2024-04-18T09:04:04.809Z] [ARB]    PROFITABLE ARB FOUND! $112.33 net — executing...
+[2024-04-18T09:04:04.810Z] [ARB]    [DRY-RUN] Would execute: buy 182.9014 LINK on Camelot V3, sell on Aerodrome. Est. profit $112.33
+[2024-04-18T09:04:04.811Z] [OK]     Telegram alert sent.

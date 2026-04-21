@@ -1,0 +1,176 @@
+[
+  {
+    "buyOn": {
+      "dex": "Camelot V3",
+      "chain": "Arbitrum",
+      "chainId": 42161,
+      "amountIn": "1000000000000000000",
+      "amountOut": "184201400000000000000",
+      "amountOutFormatted": 184.2014,
+      "gasEstimateUSD": 0.021,
+      "timestamp": 1713431464502
+    },
+    "sellOn": {
+      "dex": "Aerodrome",
+      "chain": "Base",
+      "chainId": 8453,
+      "amountIn": "1000000000000000000",
+      "amountOut": "186942100000000000000",
+      "amountOutFormatted": 186.9421,
+      "gasEstimateUSD": 0.004,
+      "timestamp": 1713431464502
+    },
+    "spreadLINK": 2.7407,
+    "spreadUSD": 50.73,
+    "totalGasUSD": 10.025,
+    "netProfitUSD": 32.18,
+    "linkPriceUSD": 18.51,
+    "ethPriceUSD": 3118.72,
+    "timestamp": 1713431464502
+  },
+  {
+    "buyOn": {
+      "dex": "Camelot V3",
+      "chain": "Arbitrum",
+      "chainId": 42161,
+      "amountIn": "1000000000000000000",
+      "amountOut": "183882100000000000000",
+      "amountOutFormatted": 183.8821,
+      "gasEstimateUSD": 0.015,
+      "timestamp": 1713431476010
+    },
+    "sellOn": {
+      "dex": "Aerodrome",
+      "chain": "Base",
+      "chainId": 8453,
+      "amountIn": "1000000000000000000",
+      "amountOut": "186253800000000000000",
+      "amountOutFormatted": 186.2538,
+      "gasEstimateUSD": 0.003,
+      "timestamp": 1713431476010
+    },
+    "spreadLINK": 2.3717,
+    "spreadUSD": 43.90,
+    "totalGasUSD": 10.018,
+    "netProfitUSD": 44.07,
+    "linkPriceUSD": 18.51,
+    "ethPriceUSD": 3118.72,
+    "timestamp": 1713431476010
+  },
+  {
+    "buyOn": {
+      "dex": "Camelot V3",
+      "chain": "Arbitrum",
+      "chainId": 42161,
+      "amountIn": "1000000000000000000",
+      "amountOut": "183710400000000000000",
+      "amountOutFormatted": 183.7104,
+      "gasEstimateUSD": 0.019,
+      "timestamp": 1713431488615
+    },
+    "sellOn": {
+      "dex": "Aerodrome",
+      "chain": "Base",
+      "chainId": 8453,
+      "amountIn": "1000000000000000000",
+      "amountOut": "187545100000000000000",
+      "amountOutFormatted": 187.5451,
+      "gasEstimateUSD": 0.004,
+      "timestamp": 1713431488615
+    },
+    "spreadLINK": 3.8347,
+    "spreadUSD": 71.41,
+    "totalGasUSD": 10.023,
+    "netProfitUSD": 71.39,
+    "linkPriceUSD": 18.63,
+    "ethPriceUSD": 3122.09,
+    "timestamp": 1713431488615
+  },
+  {
+    "buyOn": {
+      "dex": "Camelot V3",
+      "chain": "Arbitrum",
+      "chainId": 42161,
+      "amountIn": "1000000000000000000",
+      "amountOut": "185022100000000000000",
+      "amountOutFormatted": 185.0221,
+      "gasEstimateUSD": 0.014,
+      "timestamp": 1713431547510
+    },
+    "sellOn": {
+      "dex": "Aerodrome",
+      "chain": "Base",
+      "chainId": 8453,
+      "amountIn": "1000000000000000000",
+      "amountOut": "187138700000000000000",
+      "amountOutFormatted": 187.1387,
+      "gasEstimateUSD": 0.003,
+      "timestamp": 1713431547510
+    },
+    "spreadLINK": 2.1166,
+    "spreadUSD": 38.90,
+    "totalGasUSD": 10.017,
+    "netProfitUSD": 38.92,
+    "linkPriceUSD": 18.38,
+    "ethPriceUSD": 3115.30,
+    "timestamp": 1713431547510
+  },
+  {
+    "buyOn": {
+      "dex": "Uniswap V3",
+      "chain": "Ethereum",
+      "chainId": 1,
+      "amountIn": "1000000000000000000",
+      "amountOut": "183291800000000000000",
+      "amountOutFormatted": 183.2918,
+      "gasEstimateUSD": 13.55,
+      "timestamp": 1713431596812
+    },
+    "sellOn": {
+      "dex": "Aerodrome",
+      "chain": "Base",
+      "chainId": 8453,
+      "amountIn": "1000000000000000000",
+      "amountOut": "186599100000000000000",
+      "amountOutFormatted": 186.5991,
+      "gasEstimateUSD": 0.003,
+      "timestamp": 1713431596812
+    },
+    "spreadLINK": 3.3073,
+    "spreadUSD": 62.06,
+    "totalGasUSD": 13.553,
+    "netProfitUSD": 58.44,
+    "linkPriceUSD": 18.77,
+    "ethPriceUSD": 3128.41,
+    "timestamp": 1713431596812
+  },
+  {
+    "buyOn": {
+      "dex": "Camelot V3",
+      "chain": "Arbitrum",
+      "chainId": 42161,
+      "amountIn": "1000000000000000000",
+      "amountOut": "182901400000000000000",
+      "amountOutFormatted": 182.9014,
+      "gasEstimateUSD": 0.016,
+      "timestamp": 1713431644811
+    },
+    "sellOn": {
+      "dex": "Aerodrome",
+      "chain": "Base",
+      "chainId": 8453,
+      "amountIn": "1000000000000000000",
+      "amountOut": "188809200000000000000",
+      "amountOutFormatted": 188.8092,
+      "gasEstimateUSD": 0.003,
+      "timestamp": 1713431644811
+    },
+    "spreadLINK": 5.9078,
+    "spreadUSD": 112.43,
+    "totalGasUSD": 10.019,
+    "netProfitUSD": 112.33,
+    "linkPriceUSD": 19.04,
+    "ethPriceUSD": 3133.90,
+    "timestamp": 1713431644811
+  }
+]
