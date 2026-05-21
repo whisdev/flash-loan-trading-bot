@@ -4,9 +4,7 @@ A production-grade TypeScript bot that monitors the `WETH/LINK` price across thr
 
 ## Demo
 
-<video src="logs/video.mp4" controls width="100%">
-  <a href="logs/video.mp4">Watch the scanner demo</a>
-</video>
+https://github.com/whisdev/flash-loan-trading-bot/raw/main/logs/video.mp4
 
 ## Architecture
 

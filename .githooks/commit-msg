@@ -1,0 +1,3 @@
+#!/bin/sh
+# Remove Cursor co-author trailers from commit messages.
+sed -i '/^Co-authored-by: Cursor <cursoragent@cursor.com>$/d' "$1"
