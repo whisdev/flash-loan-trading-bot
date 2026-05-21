@@ -4,7 +4,7 @@ A production-grade TypeScript bot that monitors the `WETH/LINK` price across thr
 
 ## Demo
 
-<video src="https://cdn.jsdelivr.net/gh/whisdev/flash-loan-trading-bot@main/logs/video.mp4" controls width="100%"></video>
+![Cross-chain arbitrage scanner demo](logs/demo.gif)
 
 ## Architecture
 
@@ -27,7 +27,8 @@ contracts/
 logs/
 ├── arb-scanner.log   Full plain-text log of every scan
 ├── opportunities.json  JSON log of every profitable opportunity detected
-└── video.mp4         Demo recording of the scanner in action
+├── demo.gif          Animated README demo preview
+└── video.mp4         Full demo recording (with audio)
 ```
 
 ## Supported DEXs
