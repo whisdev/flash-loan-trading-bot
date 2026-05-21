@@ -63,6 +63,7 @@ contract FlashLoanArb {
     // ── Errors ────────────────────────────────────────────────────────────────
     error OnlyOwner();
     error OnlyAavePool();
+    error InvalidInitiator();
     error ProfitBelowMinimum(uint256 got, uint256 min);
 
     // ── Constructor ───────────────────────────────────────────────────────────
@@ -133,6 +134,7 @@ contract FlashLoanArb {
         bytes calldata params
     ) external returns (bool) {
         if (msg.sender != AAVE_POOL_ADDRESS) revert OnlyAavePool();
+        if (initiator != address(this)) revert InvalidInitiator();
 
         (
             address buyRouter,
