@@ -76,6 +76,11 @@ export const logger = {
       }
     }
     existing.push(record);
-    fs.writeFileSync(OPP_FILE, JSON.stringify(existing, null, 2));
+    fs.writeFileSync(
+      OPP_FILE,
+      JSON.stringify(existing, (_, value) =>
+        typeof value === "bigint" ? value.toString() : value
+      , 2)
+    );
   },
 };

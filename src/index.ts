@@ -113,13 +113,17 @@ async function tick(amountIn: bigint): Promise<void> {
   }
 
   const isCrossChain = opp.buyOn.chainId !== opp.sellOn.chainId;
+  const profitLabel =
+    opp.netProfitUSD >= BOT_CONFIG.minProfitUSD
+      ? chalk.bold.green(`$${opp.netProfitUSD.toFixed(2)}`)
+      : chalk.red(`$${opp.netProfitUSD.toFixed(2)}`);
 
   console.log(
     `\n  Buy  ▶  ${chalk.cyan(opp.buyOn.dex)} (${opp.buyOn.chain}) — ${chalk.yellow(opp.buyOn.amountOutFormatted.toFixed(4))} LINK` +
       `\n  Sell ▶  ${chalk.cyan(opp.sellOn.dex)} (${opp.sellOn.chain}) — ${chalk.yellow(opp.sellOn.amountOutFormatted.toFixed(4))} LINK` +
       `\n  Spread  ${chalk.magenta(opp.spreadLINK.toFixed(4))} LINK  ($${opp.spreadUSD.toFixed(2)})` +
       `\n  Gas+Bridge  -$${opp.totalGasUSD.toFixed(2)}  (${isCrossChain ? "cross-chain" : "same-chain"})` +
-      `\n  Net Profit  ${opp.netProfitUSD >= BOT_CONFIG.minProfitUSD ? chalk.bold.green : chalk.red}($${opp.netProfitUSD.toFixed(2)})\n`
+      `\n  Net Profit  ${profitLabel}\n`
   );
 
   if (opp.netProfitUSD >= BOT_CONFIG.minProfitUSD) {
