@@ -8,6 +8,7 @@ import { estimateGasCosts } from "./gasEstimator";
 import { fetchAllQuotes } from "./scanner";
 import { executeArbitrage } from "./executor";
 import { sendArbAlert, sendStartupAlert } from "./alerts";
+import { validateEnvironment } from "./startup";
 
 // ── Bridge overhead ───────────────────────────────────────────────────────────
 // Cross-chain arb always requires bridging on at least one leg.
@@ -153,6 +154,7 @@ async function main(): Promise<void> {
 
   const amountIn = ethers.parseEther(BOT_CONFIG.amountInETH);
 
+  await validateEnvironment();
   await sendStartupAlert(BOT_CONFIG.amountInETH, BOT_CONFIG.minProfitUSD);
 
   // Run immediately then poll
