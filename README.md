@@ -13,6 +13,7 @@ src/
 ├── priceFeed.ts      Fetches ETH/USD + LINK/USD from CoinGecko (with caching)
 ├── gasEstimator.ts   Queries on-chain gas prices, converts to real USD cost
 ├── executor.ts       Signs and sends the flash loan transaction to the contract
+├── startup.ts        Validates RPC connectivity and live DEX quotes on boot
 ├── alerts.ts         Sends Telegram notifications on profitable opportunities
 └── logger.ts         Colorized terminal + file logging (logs/ directory)
 
@@ -93,10 +94,10 @@ requestFlashLoanArb()
 
 | Variable | Default | Description |
 |---|---|---|
-| `ETH_RPC_URL` | Public Ankr | Ethereum JSON-RPC endpoint |
-| `ARB_RPC_URL` | Public Arb | Arbitrum JSON-RPC endpoint |
+| `ETH_RPC_URL` | PublicNode | Ethereum JSON-RPC endpoint |
+| `ARB_RPC_URL` | Public Arbitrum | Arbitrum JSON-RPC endpoint |
 | `BASE_RPC_URL` | Public Base | Base JSON-RPC endpoint |
-| `DRY_RUN` | `true` | Scan only — no transactions sent |
+| `DRY_RUN` | `true` (safe default) | Scan only — no transactions sent |
 | `MIN_PROFIT_USD` | `30` | Minimum net profit to trigger execution |
 | `PRIVATE_KEY` | — | Wallet private key (live mode only) |
 | `ARB_CONTRACT_ADDRESS` | — | Deployed FlashLoanArb.sol address |
@@ -131,7 +132,8 @@ requestFlashLoanArb()
 ## Important Notes
 
 - **Cross-chain flash loans are not atomically possible.** The scanner detects cross-chain spreads, but the executor currently only sends same-chain flash loan transactions. For cross-chain execution, pre-funded capital on each chain is required.
-- Use Alchemy or Infura RPC URLs — public endpoints have aggressive rate limits that will cause missed scan ticks.
+- Use Alchemy or Infura RPC URLs — public endpoints can rate-limit under load.
+- On startup the bot verifies all three RPC endpoints and fetches a live quote from each DEX before scanning.
 - Always run in `DRY_RUN=true` mode first to verify the spread logic before going live.
 
 ## Disclaimer
