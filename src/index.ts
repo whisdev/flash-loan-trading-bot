@@ -5,7 +5,7 @@ import { ArbitrageOpportunity, PriceQuote } from "./types";
 import { logger } from "./logger";
 import { fetchMarketPrices } from "./priceFeed";
 import { estimateGasCosts } from "./gasEstimator";
-import { getUniswapQuote, getCamelotQuote, getAerodromeQuote } from "./scanner";
+import { fetchAllQuotes } from "./scanner";
 import { executeArbitrage } from "./executor";
 import { sendArbAlert, sendStartupAlert } from "./alerts";
 
@@ -35,12 +35,13 @@ function findBestOpportunity(
     for (let j = 0; j < quotes.length; j++) {
       if (i === j) continue;
 
-      const buyOn = quotes[i]; // cheapest — gives most LINK for 1 WETH
-      const sellOn = quotes[j]; // most expensive — we sell LINK here
+      // More LINK per WETH = cheaper LINK (buy leg). Less LINK = expensive (sell leg).
+      if (quotes[i].amountOutFormatted <= quotes[j].amountOutFormatted) continue;
 
-      if (buyOn.amountOutFormatted >= sellOn.amountOutFormatted) continue;
+      const buyOn = quotes[i];
+      const sellOn = quotes[j];
 
-      const spreadLINK = sellOn.amountOutFormatted - buyOn.amountOutFormatted;
+      const spreadLINK = buyOn.amountOutFormatted - sellOn.amountOutFormatted;
       const spreadUSD = spreadLINK * linkPriceUSD;
 
       const isCrossChain = buyOn.chainId !== sellOn.chainId;
@@ -78,18 +79,9 @@ async function tick(amountIn: bigint): Promise<void> {
   logger.divider();
   logger.info(`Scanning quotes for ${ethers.formatEther(amountIn)} WETH...`);
 
-  // Fetch market prices + gas in parallel
-  const [prices, gasCosts] = await Promise.all([
-    fetchMarketPrices(),
-    estimateGasCosts(0), // first pass without ETH price
-  ]).then(async ([p, _]) => [p, await estimateGasCosts(p.ethUSD)] as const);
-
-  // Fetch all three DEX quotes in parallel
-  const [uniQuote, camQuote, aeroQuote] = await Promise.all([
-    getUniswapQuote(amountIn, gasCosts.ethereum),
-    getCamelotQuote(amountIn, gasCosts.arbitrum),
-    getAerodromeQuote(amountIn, gasCosts.base),
-  ]);
+  const prices = await fetchMarketPrices();
+  const gasCosts = await estimateGasCosts(prices.ethUSD);
+  const [uniQuote, camQuote, aeroQuote] = await fetchAllQuotes(amountIn, gasCosts);
 
   // Print price table
   logger.prices(
