@@ -2,6 +2,12 @@
 
 A production-grade TypeScript bot that monitors the `WETH/LINK` price across three DEXs on three different EVM chains simultaneously. When a profitable spread is found (after deducting real on-chain gas and bridging costs), it optionally executes an Aave V3 flash-loan-funded trade via a custom Solidity smart contract.
 
+## Demo
+
+<video src="logs/video.mp4" controls width="100%">
+  <a href="logs/video.mp4">Watch the scanner demo</a>
+</video>
+
 ## Architecture
 
 ```
@@ -22,7 +28,8 @@ contracts/
 
 logs/
 ├── arb-scanner.log   Full plain-text log of every scan
-└── opportunities.json  JSON log of every profitable opportunity detected
+├── opportunities.json  JSON log of every profitable opportunity detected
+└── video.mp4         Demo recording of the scanner in action
 ```
 
 ## Supported DEXs
@@ -107,10 +114,10 @@ requestFlashLoanArb()
 ## Terminal Output Example
 
 ```
-  ╔══════════════════════════════════════╗
-  ║   Cross-Chain Arbitrage Scanner      ║
-  ║   Uniswap · Camelot · Aerodrome      ║
-  ╚══════════════════════════════════════╝
+  ╔═════════════════════════════════════════════════╗
+  ║   Cross-Chain Flash Loan Arbitrage Scanner      ║
+  ║        Uniswap · Camelot · Aerodrome            ║
+  ╚═════════════════════════════════════════════════╝
 
 [2024-04-18T10:00:00.000Z] INFO   Mode: DRY RUN
 [2024-04-18T10:00:00.000Z] INFO   Min profit: $30
