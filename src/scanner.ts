@@ -7,17 +7,26 @@ import {
   CAMELOT_QUOTER_ABI,
   AERODROME_ROUTER_ABI,
   CHAINS,
+  BOT_CONFIG,
 } from "./config";
 import { PriceQuote } from "./types";
 import { logger } from "./logger";
 
-// ── Retry helper ─────────────────────────────────────────────────────────────
+function readAmountOut(result: unknown): bigint {
+  if (typeof result === "bigint") return result;
+  if (Array.isArray(result) || (typeof result === "object" && result !== null)) {
+    const value = (result as { amountOut?: bigint; 0?: bigint }).amountOut ??
+      (result as { 0?: bigint })[0];
+    if (typeof value === "bigint") return value;
+  }
+  throw new Error("Quote response did not include amountOut");
+}
 
 async function withRetry<T>(
   fn: () => Promise<T>,
   label: string,
-  retries = 3,
-  delayMs = 2000
+  retries = BOT_CONFIG.maxRetries,
+  delayMs = BOT_CONFIG.retryDelayMs
 ): Promise<T | null> {
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
@@ -32,8 +41,6 @@ async function withRetry<T>(
   }
   return null;
 }
-
-// ── Uniswap V3 ───────────────────────────────────────────────────────────────
 
 export async function getUniswapQuote(
   amountIn: bigint,
@@ -56,21 +63,22 @@ export async function getUniswapQuote(
     return quoter.quoteExactInputSingle.staticCall(params);
   }, "Uniswap V3 quote");
 
-  if (!result || result.amountOut === 0n) return null;
+  if (!result) return null;
+
+  const amountOut = readAmountOut(result);
+  if (amountOut === 0n) return null;
 
   return {
     dex: "Uniswap V3",
     chain: "Ethereum",
     chainId: CHAINS.ETHEREUM,
     amountIn,
-    amountOut: result.amountOut,
-    amountOutFormatted: parseFloat(ethers.formatUnits(result.amountOut, 18)),
+    amountOut,
+    amountOutFormatted: parseFloat(ethers.formatUnits(amountOut, 18)),
     gasEstimateUSD,
     timestamp: Date.now(),
   };
 }
-
-// ── Camelot V3 (Algebra — no fee tier) ───────────────────────────────────────
 
 export async function getCamelotQuote(
   amountIn: bigint,
@@ -82,30 +90,31 @@ export async function getCamelotQuote(
     providers.arbitrum
   );
 
+  const path = ethers.solidityPacked(
+    ["address", "address"],
+    [TOKENS.arbitrum.WETH, TOKENS.arbitrum.LINK]
+  );
+
   const result = await withRetry(async () => {
-    return quoter.quoteExactInputSingle.staticCall(
-      TOKENS.arbitrum.WETH,
-      TOKENS.arbitrum.LINK,
-      amountIn,
-      0n // limitSqrtPrice = 0 means no limit
-    );
+    return quoter.quoteExactInput.staticCall(path, amountIn);
   }, "Camelot V3 quote");
 
-  if (!result || result.amountOut === 0n) return null;
+  if (!result) return null;
+
+  const amountOut = readAmountOut(result);
+  if (amountOut === 0n) return null;
 
   return {
     dex: "Camelot V3",
     chain: "Arbitrum",
     chainId: CHAINS.ARBITRUM,
     amountIn,
-    amountOut: result.amountOut,
-    amountOutFormatted: parseFloat(ethers.formatUnits(result.amountOut, 18)),
+    amountOut,
+    amountOutFormatted: parseFloat(ethers.formatUnits(amountOut, 18)),
     gasEstimateUSD,
     timestamp: Date.now(),
   };
 }
-
-// ── Aerodrome (Base) ──────────────────────────────────────────────────────────
 
 export async function getAerodromeQuote(
   amountIn: bigint,
@@ -122,7 +131,7 @@ export async function getAerodromeQuote(
       {
         from: TOKENS.base.WETH,
         to: TOKENS.base.LINK,
-        stable: false, // volatile pool
+        stable: false,
         factory: DEX.aerodrome.volatileFactory,
       },
     ];
@@ -144,4 +153,16 @@ export async function getAerodromeQuote(
     gasEstimateUSD,
     timestamp: Date.now(),
   };
+}
+
+export async function fetchAllQuotes(amountIn: bigint, gasCosts: {
+  ethereum: number;
+  arbitrum: number;
+  base: number;
+}): Promise<(PriceQuote | null)[]> {
+  return Promise.all([
+    getUniswapQuote(amountIn, gasCosts.ethereum),
+    getCamelotQuote(amountIn, gasCosts.arbitrum),
+    getAerodromeQuote(amountIn, gasCosts.base),
+  ]);
 }
