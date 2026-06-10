@@ -1,11 +1,15 @@
 import axios from "axios";
 import { MarketPrices } from "./types";
 import { logger } from "./logger";
+import { cacheGet, cacheSet } from "./cache/store";
 
-// Cache prices to avoid hammering CoinGecko rate limits
-let cache: MarketPrices | null = null;
-let cacheTimestamp = 0;
-const CACHE_TTL_MS = 30_000; // refresh every 30 seconds
+const CACHE_KEY = "market-prices";
+const CACHE_TTL_SEC = 30;
+
+type CachedPrices = { prices: MarketPrices; cachedAt: number };
+
+// In-process fallback when Redis and the shared cache layer are unavailable
+let memoryFallback: MarketPrices | null = null;
 
 const COINGECKO_URL =
   "https://api.coingecko.com/api/v3/simple/price?ids=ethereum,chainlink&vs_currencies=usd";
@@ -16,8 +20,10 @@ const COINGECKO_URL =
  */
 export async function fetchMarketPrices(): Promise<MarketPrices> {
   const now = Date.now();
-  if (cache && now - cacheTimestamp < CACHE_TTL_MS) {
-    return cache;
+  const cached = await cacheGet<CachedPrices>(CACHE_KEY);
+  if (cached && now - cached.cachedAt < CACHE_TTL_SEC * 1000) {
+    memoryFallback = cached.prices;
+    return cached.prices;
   }
 
   try {
@@ -26,20 +32,21 @@ export async function fetchMarketPrices(): Promise<MarketPrices> {
       chainlink: { usd: number };
     }>(COINGECKO_URL, { timeout: 8_000 });
 
-    cache = {
+    const prices: MarketPrices = {
       ethUSD: response.data.ethereum.usd,
       linkUSD: response.data.chainlink.usd,
     };
-    cacheTimestamp = now;
+    memoryFallback = prices;
+    await cacheSet(CACHE_KEY, { prices, cachedAt: now }, CACHE_TTL_SEC);
 
     logger.info(
-      `Market prices refreshed — ETH $${cache.ethUSD.toFixed(2)}  LINK $${cache.linkUSD.toFixed(4)}`
+      `Market prices refreshed — ETH $${prices.ethUSD.toFixed(2)}  LINK $${prices.linkUSD.toFixed(4)}`
     );
-    return cache;
+    return prices;
   } catch (err) {
-    if (cache) {
+    if (memoryFallback) {
       logger.warn("CoinGecko request failed — using cached prices.");
-      return cache;
+      return memoryFallback;
     }
     // Hard fallback so the bot doesn't crash on first run
     logger.warn("CoinGecko unreachable on first fetch — using fallback prices.");

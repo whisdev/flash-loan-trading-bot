@@ -19,6 +19,9 @@ src/
 ├── executor.ts       Signs and sends the flash loan transaction to the contract
 ├── startup.ts        Validates RPC connectivity and live DEX quotes on boot
 ├── alerts.ts         Sends Telegram notifications on profitable opportunities
+├── cache/
+│   ├── redis.ts      ioredis-os client (optional Redis cache)
+│   └── store.ts      Shared cache with in-memory fallback
 └── logger.ts         Colorized terminal + file logging (logs/ directory)
 
 contracts/
@@ -109,6 +112,8 @@ requestFlashLoanArb()
 | `ARB_CONTRACT_ADDRESS` | — | Deployed FlashLoanArb.sol address |
 | `TELEGRAM_BOT_TOKEN` | — | Optional Telegram bot token |
 | `TELEGRAM_CHAT_ID` | — | Optional Telegram chat ID |
+| `REDIS_URL` | — | Optional Redis URL for shared market-price cache |
+| `REDIS_ENABLED` | `true` when Redis host/url set | Set `false` to force in-memory cache only |
 
 ## Terminal Output Example
 

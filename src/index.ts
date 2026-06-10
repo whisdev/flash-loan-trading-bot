@@ -9,6 +9,7 @@ import { fetchAllQuotes } from "./scanner";
 import { executeArbitrage } from "./executor";
 import { sendArbAlert, sendStartupAlert } from "./alerts";
 import { validateEnvironment } from "./startup";
+import { closeRedisClient } from "./cache/redis";
 
 // ── Bridge overhead ───────────────────────────────────────────────────────────
 // Cross-chain arb always requires bridging on at least one leg.
@@ -171,7 +172,21 @@ async function main(): Promise<void> {
   }, BOT_CONFIG.scanIntervalMs);
 }
 
-main().catch((err) => {
-  logger.error("Fatal startup error", err);
-  process.exit(1);
+async function shutdown(code: number): Promise<void> {
+  await closeRedisClient();
+  process.exit(code);
+}
+
+main()
+  .then(() => undefined)
+  .catch(async (err) => {
+    logger.error("Fatal startup error", err);
+    await shutdown(1);
+  });
+
+process.on("SIGINT", () => {
+  void shutdown(0);
+});
+process.on("SIGTERM", () => {
+  void shutdown(0);
 });

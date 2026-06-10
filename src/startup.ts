@@ -2,6 +2,7 @@ import { ethers } from "ethers";
 import { BOT_CONFIG, providers } from "./config";
 import { fetchAllQuotes } from "./scanner";
 import { logger } from "./logger";
+import { isRedisEnabled, pingRedis } from "./cache/redis";
 
 const CHAIN_CHECKS = [
   { name: "Ethereum", provider: providers.ethereum },
@@ -11,6 +12,15 @@ const CHAIN_CHECKS = [
 
 export async function validateEnvironment(): Promise<void> {
   logger.info("Running startup checks...");
+
+  if (isRedisEnabled()) {
+    const ok = await pingRedis();
+    logger[ok ? "success" : "warn"](
+      ok ? "Redis cache connected" : "Redis unreachable — using in-memory cache"
+    );
+  } else {
+    logger.info("Redis cache disabled — using in-memory cache");
+  }
 
   await Promise.all(
     CHAIN_CHECKS.map(async ({ name, provider }) => {
