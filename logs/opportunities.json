@@ -50,7 +50,7 @@
       "timestamp": 1713431476010
     },
     "spreadLINK": 2.3717,
-    "spreadUSD": 43.90,
+    "spreadUSD": 43.9,
     "totalGasUSD": 10.018,
     "netProfitUSD": 44.07,
     "linkPriceUSD": 18.51,
@@ -108,11 +108,11 @@
       "timestamp": 1713431547510
     },
     "spreadLINK": 2.1166,
-    "spreadUSD": 38.90,
+    "spreadUSD": 38.9,
     "totalGasUSD": 10.017,
     "netProfitUSD": 38.92,
     "linkPriceUSD": 18.38,
-    "ethPriceUSD": 3115.30,
+    "ethPriceUSD": 3115.3,
     "timestamp": 1713431547510
   },
   {
@@ -170,7 +170,65 @@
     "totalGasUSD": 10.019,
     "netProfitUSD": 112.33,
     "linkPriceUSD": 19.04,
-    "ethPriceUSD": 3133.90,
+    "ethPriceUSD": 3133.9,
     "timestamp": 1713431644811
+  },
+  {
+    "buyOn": {
+      "dex": "Camelot V3",
+      "chain": "Arbitrum",
+      "chainId": 42161,
+      "amountIn": "1000000000000000000",
+      "amountOut": "211988484792866671879",
+      "amountOutFormatted": 211.98848479286667,
+      "gasEstimateUSD": 0.026132808544,
+      "timestamp": 1781114970812
+    },
+    "sellOn": {
+      "dex": "Aerodrome",
+      "chain": "Base",
+      "chainId": 8453,
+      "amountIn": "1000000000000000000",
+      "amountOut": "201287313587",
+      "amountOutFormatted": 2.01287313587e-7,
+      "gasEstimateUSD": 0.007177192000000001,
+      "timestamp": 1781114970797
+    },
+    "spreadLINK": 211.98848459157935,
+    "spreadUSD": 1628.0715616633292,
+    "totalGasUSD": 10.033310000544,
+    "netProfitUSD": 1618.0382516627853,
+    "linkPriceUSD": 7.68,
+    "ethPriceUSD": 1631.18,
+    "timestamp": 1781114970813
+  },
+  {
+    "buyOn": {
+      "dex": "Camelot V3",
+      "chain": "Arbitrum",
+      "chainId": 42161,
+      "amountIn": "1000000000000000000",
+      "amountOut": "211988484792866671879",
+      "amountOutFormatted": 211.98848479286667,
+      "gasEstimateUSD": 0.026114539328,
+      "timestamp": 1781114983136
+    },
+    "sellOn": {
+      "dex": "Aerodrome",
+      "chain": "Base",
+      "chainId": 8453,
+      "amountIn": "1000000000000000000",
+      "amountOut": "201287313587",
+      "amountOutFormatted": 2.01287313587e-7,
+      "gasEstimateUSD": 0.007177192000000001,
+      "timestamp": 1781114983123
+    },
+    "spreadLINK": 211.98848459157935,
+    "spreadUSD": 1628.0715616633292,
+    "totalGasUSD": 10.033291731328,
+    "netProfitUSD": 1618.0382699320012,
+    "linkPriceUSD": 7.68,
+    "ethPriceUSD": 1631.18,
+    "timestamp": 1781114983136
   }
 ]

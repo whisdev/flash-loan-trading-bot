@@ -119,3 +119,39 @@
 [2024-04-18T09:04:04.809Z] [ARB]    PROFITABLE ARB FOUND! $112.33 net — executing...
 [2024-04-18T09:04:04.810Z] [ARB]    [DRY-RUN] Would execute: buy 182.9014 LINK on Camelot V3, sell on Aerodrome. Est. profit $112.33
 [2024-04-18T09:04:04.811Z] [OK]     Telegram alert sent.
+[INFO]  Mode: DRY RUN
+[INFO]  Min profit: $30
+[INFO]  Scan interval: 12s
+[INFO]  Telegram alerts: disabled
+[INFO]  Running startup checks...
+[INFO]  Redis cache disabled — using in-memory cache
+[OK]    Ethereum RPC reachable — block #25288744
+[OK]    Base RPC reachable — block #47162811
+[OK]    Arbitrum RPC reachable — block #472112075
+[OK]    Uniswap V3 quote OK — 211.3423 LINK for 1.0 WETH
+[OK]    Camelot V3 quote OK — 211.9885 LINK for 1.0 WETH
+[OK]    Aerodrome quote OK — 0.0000 LINK for 1.0 WETH
+[INFO]  Scanning quotes for 1.0 WETH...
+[INFO]  Market prices refreshed — ETH $1631.18  LINK $7.6800
+[INFO]  Gas costs — ETH $0.19  ARB $0.026  BASE $0.007
+[ARB]   PROFITABLE ARB FOUND! $1618.04 net — executing...
+[ARB]   [DRY-RUN] Would execute: buy 211.9885 LINK on Camelot V3, sell on Aerodrome. Est. profit $1618.04 (cross-chain — on-chain flash loan not atomic)
+[INFO]  Scanning quotes for 1.0 WETH...
+[INFO]  Gas costs — ETH $0.19  ARB $0.026  BASE $0.007
+[ARB]   PROFITABLE ARB FOUND! $1618.04 net — executing...
+[ARB]   [DRY-RUN] Would execute: buy 211.9885 LINK on Camelot V3, sell on Aerodrome. Est. profit $1618.04 (cross-chain — on-chain flash loan not atomic)
+[INFO]  Scanning quotes for 1.0 WETH...
+[INFO]  Mode: DRY RUN
+[INFO]  Min profit: $30
+[INFO]  Scan interval: 12s
+[INFO]  Telegram alerts: disabled
+[INFO]  Running startup checks...
+[OK]    Redis cache connected
+[OK]    Ethereum RPC reachable — block #25288750
+[OK]    Arbitrum RPC reachable — block #472112378
+[OK]    Base RPC reachable — block #47162849
+[OK]    Uniswap V3 quote OK — 211.3423 LINK for 1.0 WETH
+[OK]    Camelot V3 quote OK — 211.9885 LINK for 1.0 WETH
+[OK]    Aerodrome quote OK — 0.0000 LINK for 1.0 WETH
+[INFO]  Scanning quotes for 1.0 WETH...
+[INFO]  Market prices refreshed — ETH $1630.42  LINK $7.6700
