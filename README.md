@@ -4,7 +4,7 @@ A production-grade TypeScript bot that monitors the `WETH/LINK` price across thr
 
 ## Demo
 
-![Cross-chain arbitrage scanner demo](logs/demo.gif)
+https://github.com/user-attachments/assets/af0fa1b6-83fc-4bb5-9798-2c35211fa52a
 
 ## Architecture
 
